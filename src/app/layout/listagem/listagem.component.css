@@ -1,25 +1,33 @@
 .container {
+  padding: 2rem;
+  margin-bottom: 100px;
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding: 24px;
-  margin-bottom: 80px;
 }
 
 .notas-card {
   width: 100%;
   max-width: 1200px;
-  background-color: #ffffff;
+  background-color: var(--branco);
   padding: 24px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
 
 .full-width-table {
   width: 100%;
-  margin-top: 16px;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.filtros {
-  margin-bottom: 16px;
+table th {
+  background-color: var(--verde);
+  color: var(--branco);
+}
+
+table tr:hover {
+  background-color: #e8f4ea;
 }

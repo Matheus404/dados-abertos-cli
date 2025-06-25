@@ -1,34 +1,31 @@
 .header-toolbar {
   width: 100%;
-  background-color: #006837;
-  color: white;
+  background-color: var(--verde);
+  color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 24px;
   box-sizing: border-box;
+  height: 64px;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .logo img {
-  height: 32px;
-  margin-right: 12px;
+  height: 40px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
 }
 
-.title {
+
+nav a {
+  color: var(--branco);
+  margin-left: 1rem;
   font-weight: bold;
-  font-size: 18px;
-  white-space: nowrap;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-.menu a {
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  margin-left: 12px;
 }
