@@ -40,3 +40,20 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Node modules
+/node_modules
+
+# Compilação Angular
+/dist
+/out-tsc
+
+# Arquivos de build temporários
+/tmp
+/.angular
+/.angular/cache
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

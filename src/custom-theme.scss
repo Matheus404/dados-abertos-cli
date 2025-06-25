@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$spring-green-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}

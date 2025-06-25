@@ -1,0 +1,35 @@
+<div class="container">
+  <mat-card class="notas-card">
+    <h2>Notas Fiscais</h2>
+
+    <!-- Espaço para filtros futuramente -->
+    <div class="filtros">
+      <p style="font-style: italic;">[Componente de Filtros em breve]</p>
+    </div>
+
+    <!-- Tabela -->
+    <table mat-table [dataSource]="dados" class="mat-elevation-z1 full-width-table">
+
+      <!-- Coluna: Número -->
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef> Nº Nota </th>
+        <td mat-cell *matCellDef="let nota"> {{nota.numero}} </td>
+      </ng-container>
+
+      <!-- Coluna: Emitente -->
+      <ng-container matColumnDef="emitente">
+        <th mat-header-cell *matHeaderCellDef> Emitente </th>
+        <td mat-cell *matCellDef="let nota"> {{nota.emitente}} </td>
+      </ng-container>
+
+      <!-- Coluna: Valor -->
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let nota"> R$ {{nota.valor}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+      <tr mat-row *matRowDef="let row; columns: colunas;"></tr>
+    </table>
+  </mat-card>
+</div>
