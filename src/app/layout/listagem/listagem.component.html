@@ -23,13 +23,13 @@
         <!-- Fornecedor -->
         <ng-container matColumnDef="fornecedor">
           <th mat-header-cell *matHeaderCellDef> Fornecedor </th>
-          <td mat-cell *matCellDef="let nota"> {{ nota.cpgfOuCnpjFornecedor }} </td>
+          <td mat-cell *matCellDef="let nota"> {{ nota.fornecedor?.razaoSocial }} </td>
         </ng-container>
 
         <!-- Órgão -->
         <ng-container matColumnDef="orgao">
           <th mat-header-cell *matHeaderCellDef> Órgão </th>
-          <td mat-cell *matCellDef="let nota"> {{ nota.cnpjOrgao }} </td>
+          <td mat-cell *matCellDef="let nota"> {{ nota.orgaoPublico?.nome }} </td>
         </ng-container>
 
         <!-- Valor -->
