@@ -4,9 +4,9 @@
       <mat-icon class="icone-secao">receipt_long</mat-icon>
       <h2>Notas Fiscais</h2>
     </div>
-  
+
     <mat-card-content>
-      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+      <table mat-table [dataSource]="notas" matSort class="mat-elevation-z8">
 
         <!-- Número -->
         <ng-container matColumnDef="numero">
@@ -52,8 +52,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
-      <mat-paginator [length]="totalPaginas * 10" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"
-                     (page)="carregarNotas($event.pageIndex)">
+      <mat-paginator [length]="totalRegistros" [pageSize]="tamanhoPagina" [pageIndex]="pagina"
+        [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons (page)="aoPaginar($event)">
       </mat-paginator>
     </mat-card-content>
   </mat-card>

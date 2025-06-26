@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import {
   NotaFiscalService,
@@ -32,35 +32,29 @@ export class ListagemComponent implements OnInit {
     'valor',
     'acoes',
   ];
-  dataSource = this.notas;
-  totalPaginas: number = 0;
+
+  pagina = 0;
+  tamanhoPagina = 10;
+  totalRegistros = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private notaService: NotaFiscalService) {}
 
   ngOnInit(): void {
-    this.carregarNotas();
+    this.carregarNotas(this.pagina, this.tamanhoPagina);
   }
 
-  carregarNotas(pagina: number = 0) {
-    this.notaService.listarNotas(pagina).subscribe((dados) => {
+  carregarNotas(pagina: number = 0, tamanho: number = 10): void {
+    this.notaService.listarNotas(pagina, tamanho).subscribe((dados) => {
       this.notas = dados.content;
-      this.dataSource = this.notas;
-      this.paginator.pageIndex = pagina;
+      this.pagina = dados.number;
+      this.tamanhoPagina = dados.size;
+      this.totalRegistros = dados.totalElements;
     });
   }
 
-    proximaPagina() {
-    if (this.paginator.pageIndex + 1 < this.paginator.getNumberOfPages()) {
-      this.carregarNotas(this.paginator.pageIndex + 1);
-    }
+  aoPaginar(event: PageEvent): void {
+    this.carregarNotas(event.pageIndex, event.pageSize);
   }
-
-  paginaAnterior() {
-    if (this.paginator.pageIndex > 0) {
-      this.carregarNotas(this.paginator.pageIndex - 1);
-    }
-  }
-  
 }
