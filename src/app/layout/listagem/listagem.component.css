@@ -4,6 +4,26 @@
   justify-content: center;
 }
 
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 8px;
+  background-color: var(--cinza-claro);
+  border-radius: 12px;
+}
+
+.filtros mat-form-field {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.filtros button {
+  align-self: end;
+  height: 40px;
+}
+
 .titulo-secao {
   display: flex;
   align-items: center;

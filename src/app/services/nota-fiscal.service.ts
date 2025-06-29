@@ -21,17 +21,28 @@ export interface PaginatedResponse<T> {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotaFiscalService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/notas-fiscais`;
 
-  listarNotas(pagina = 0, tamanho = 10): Observable<PaginatedResponse<NotaFiscal>> {
-    const params = new HttpParams()
-      .set('page', pagina)
-      .set('size', tamanho);
+  listarNotas(
+    pagina = 0,
+    tamanho = 10,
+    filtros: any = {}
+  ): Observable<PaginatedResponse<NotaFiscal>> {
+    let params = new HttpParams().set('page', pagina).set('size', tamanho);
 
-    return this.http.get<PaginatedResponse<NotaFiscal>>(this.apiUrl, { params });
+    Object.keys(filtros).forEach((chave) => {
+      const valor = filtros[chave];
+      if (valor !== null && valor !== undefined && valor !== '') {
+        params = params.set(chave, valor);
+      }
+    });
+
+    return this.http.get<PaginatedResponse<NotaFiscal>>(this.apiUrl, {
+      params,
+    });
   }
 }
