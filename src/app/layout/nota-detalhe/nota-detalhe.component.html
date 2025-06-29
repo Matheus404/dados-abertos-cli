@@ -1,0 +1,14 @@
+<mat-card *ngIf="nota">
+  <h2>Nota Fiscal Nº {{ nota.numero }}</h2>
+  <p><strong>Data de Emissão:</strong> {{ nota.dataEmissao | date: 'dd/MM/yyyy' }}</p>
+  <p><strong>Fornecedor:</strong> {{ nota.fornecedor.razaoSocial }}</p>
+  <p><strong>Órgão:</strong> {{ nota.orgaoPublico.nome }}</p>
+  <p><strong>Valor Total:</strong> {{ nota.valorNotaFiscal | currency:'BRL' }}</p>
+
+  <h3>Itens</h3>
+  <ul>
+    <li *ngFor="let item of nota.itens">
+      {{ item.descricaoProdutoServico }} - {{ item.quantidade }} x {{ item.valorUnitario | currency:'BRL' }} = {{ item.valorTotal | currency:'BRL' }}
+    </li>
+  </ul>
+</mat-card>

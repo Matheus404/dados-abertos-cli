@@ -73,7 +73,7 @@
         <ng-container matColumnDef="acoes">
           <th mat-header-cell *matHeaderCellDef> Ações </th>
           <td mat-cell *matCellDef="let nota">
-            <button mat-icon-button class="btn-visualizar" title="Visualizar">
+            <button mat-icon-button class="btn-visualizar" title="Visualizar" (click)="verDetalhes(nota.id)">
               <mat-icon>search</mat-icon>
             </button>
           </td>

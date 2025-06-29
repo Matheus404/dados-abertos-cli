@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -55,7 +56,7 @@ export class ListagemComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private notaService: NotaFiscalService) {}
+  constructor(private notaService: NotaFiscalService, private router: Router) {}
 
   ngOnInit(): void {
     this.carregarNotas();
@@ -91,5 +92,9 @@ export class ListagemComponent implements OnInit {
       numero: null,
     };
     this.aplicarFiltros();
+  }
+
+  verDetalhes(id: number): void {
+    this.router.navigate(['/notas-fiscais', id]);
   }
 }
