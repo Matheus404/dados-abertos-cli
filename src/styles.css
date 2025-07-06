@@ -37,3 +37,15 @@ button.mat-raised-button.pesquisar {
 button.mat-raised-button.pesquisar:hover {
   background-color: #e6b800;
 }
+
+/* Garante que o conteúdo da nota-detalhe ocupe toda a altura e respeite o rodapé */
+:host {
+  display: block;
+  padding-bottom: 80px; /* espaço extra para o rodapé */
+}
+
+/* Ajuste extra se o mat-card estiver colado demais no rodapé */
+mat-card {
+  margin-bottom: 32px;
+}
+
