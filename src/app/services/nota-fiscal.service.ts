@@ -5,11 +5,49 @@ import { Observable } from 'rxjs';
 
 export interface NotaFiscal {
   id: number;
+  chaveAcesso: string;
+  modelo: string;
+  serie: string;
   numero: number;
+  naturezaOperacao: string;
   dataEmissao: string;
-  cpgfOuCnpjFornecedor: string;
+  eventoRecente: string;
+  dataHoraEventoRecente: string;
+  cpfOuCnpjFornecedor: string;
   cnpjOrgao: string;
+  destinoOperacao: string;
+  consumidorFinal: string;
+  presencaComprador: string;
   valorNotaFiscal: number;
+  fornecedor: {
+    id: number;
+    cpfOuCnpj: string;
+    razaoSocial: string;
+    inscricaoEstadual: string;
+    uf: string;
+    municipio: string;
+    mei: boolean;
+  };
+  orgaoPublico: {
+    id: number;
+    cnpj: string;
+    nome: string;
+    uf: string;
+    indicadorContribuinte: string;
+  };
+  itens: {
+    id: number;
+    chaveAcesso: string;
+    numeroProduto: number;
+    descricaoProdutoServico: string;
+    codigoNcmSh: string;
+    ncmShTipoDeProduto: string;
+    cfop: string;
+    quantidade: number;
+    unidadeMedida: string;
+    valorUnitario: number;
+    valorTotal: number;
+  }[];
 }
 
 export interface PaginatedResponse<T> {
@@ -44,5 +82,9 @@ export class NotaFiscalService {
     return this.http.get<PaginatedResponse<NotaFiscal>>(this.apiUrl, {
       params,
     });
+  }
+
+  buscarNotaPorId(id: number): Observable<NotaFiscal> {
+    return this.http.get<NotaFiscal>(`${this.apiUrl}/${id}`);
   }
 }
