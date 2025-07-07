@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -56,10 +56,16 @@ export class ListagemComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private notaService: NotaFiscalService, private router: Router) {}
+  constructor(
+    private notaService: NotaFiscalService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.carregarNotas();
+    const paginaParam = this.route.snapshot.queryParamMap.get('pagina');
+    this.pagina = paginaParam ? +paginaParam : 0;
+    this.carregarNotas(this.pagina, this.tamanhoPagina);
   }
 
   carregarNotas(pagina: number = 0, tamanho: number = 10): void {
@@ -95,6 +101,8 @@ export class ListagemComponent implements OnInit {
   }
 
   verDetalhes(id: number): void {
-    this.router.navigate(['/notas-fiscais', id]);
+    this.router.navigate(['/notas-fiscais', id], {
+      queryParams: { pagina: this.pagina },
+    });
   }
 }

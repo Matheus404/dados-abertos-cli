@@ -16,15 +16,16 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
     MatCardModule,
     MatIconModule,
     MatTooltipModule,
-    MatTableModule
+    MatTableModule,
   ],
   providers: [CurrencyPipe, DatePipe],
   templateUrl: './nota-detalhe.component.html',
-  styleUrl: './nota-detalhe.component.css'
+  styleUrl: './nota-detalhe.component.css',
 })
 export class NotaDetalheComponent implements OnInit {
   nota!: NotaFiscal;
   colunasItens = ['descricao', 'quantidade', 'valorUnitario', 'valorTotal'];
+  paginaAnterior = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,12 +35,17 @@ export class NotaDetalheComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.notaService.buscarNotaPorId(id).subscribe(dados => {
+    this.paginaAnterior =
+      Number(this.route.snapshot.queryParamMap.get('pagina')) || 0;
+
+    this.notaService.buscarNotaPorId(id).subscribe((dados) => {
       this.nota = dados;
     });
   }
 
   voltar(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/'], {
+      queryParams: { pagina: this.paginaAnterior },
+    });
   }
 }
