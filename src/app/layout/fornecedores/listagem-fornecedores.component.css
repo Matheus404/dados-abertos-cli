@@ -1,0 +1,90 @@
+.container {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background-color: var(--branco);
+}
+
+/* Filtros (mesmo padrão da listagem de notas) */
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.filtros button {
+  height: 56px;
+}
+
+/* Título seção (mesmo padrão da listagem de notas) */
+.titulo-secao {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 16px 0;
+  padding-left: 8px;
+}
+
+.titulo-secao h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--preto);
+  margin: 0;
+}
+
+.icone-secao {
+  color: var(--verde);
+  font-size: 28px;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+mat-row:nth-child(even) mat-cell {
+  background-color: #f9f9f9;
+}
+
+/* Botão ação */
+.btn-visualizar {
+  color: var(--amarelo);
+  background: none !important;
+  border: none;
+  box-shadow: none;
+}
+
+.btn-visualizar:hover {
+  color: #e6b800;
+  background: none !important;
+}
+
+mat-paginator {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .filtros {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+}
