@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ListagemComponent } from '../app/layout/listagem/listagem.component';
 import { NotaDetalheComponent } from '../app/layout/nota-detalhe/nota-detalhe.component';
 import { GraficoMapaComponent } from '../app/layout/grafico-mapa/grafico-mapa.component';
+import { ListagemFornecedoresComponent } from '../app/layout/fornecedores/listagem-fornecedores.component'
 
 export const routes: Routes = [
   {
@@ -20,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'graficos',
     component: GraficoMapaComponent,
+  },
+  {
+    path: 'fornecedores',
+    component: ListagemFornecedoresComponent
   },
 ];
