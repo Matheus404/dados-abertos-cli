@@ -106,3 +106,21 @@ mat-paginator {
     font-size: 13px;
   }
 }
+
+.container {
+  padding: 2rem;              /* espaçamento interno (afasta do canto da tela) */
+  display: flex;
+  flex-direction: column;     /* empilha os mat-cards */
+  align-items: center;        /* centraliza no eixo horizontal */
+}
+
+mat-card {
+  width: 100%;
+  max-width: 1200px;          /* limite da largura */
+  padding: 1rem;
+  margin-bottom: 24px;        /* espaçamento entre cards */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background-color: var(--branco);
+}
+

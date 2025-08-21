@@ -5,11 +5,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { FornecedorService } from '../../services/fornecedor.service';
+import { MatIconModule } from '@angular/material/icon'; 
 
 @Component({
   selector: 'app-detalhe-fornecedor',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatTableModule, MatPaginatorModule],
+  imports: [CommonModule, MatCardModule, MatTableModule, MatPaginatorModule, MatIconModule],
   templateUrl: './detalhe-fornecedor.component.html',
   styleUrls: ['./detalhe-fornecedor.component.css']
 })
