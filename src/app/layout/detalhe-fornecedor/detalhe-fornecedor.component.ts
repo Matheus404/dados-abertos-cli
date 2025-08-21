@@ -23,7 +23,7 @@ export class DetalheFornecedorComponent implements OnInit {
   itens: any[] = [];
   totalRegistros = 0;
   pageIndex = 0;
-  pageSize = 20;
+  pageSize = 10;
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
