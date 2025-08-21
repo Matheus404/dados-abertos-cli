@@ -29,9 +29,18 @@ export class FornecedorService {
         params = params.set('mei', String(filtros.mei));
     }
 
-    return this.http.get<PaginatedResponse<Fornecedor>>(
-      this.apiUrl,
-      { params }
-    );
+    return this.http.get<PaginatedResponse<Fornecedor>>(this.apiUrl, {
+      params,
+    });
+  }
+
+  buscarFornecedorPorId(
+    id: number,
+    page: number,
+    size: number
+  ): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/fornecedores/${id}`, {
+      params: { page, size },
+    });
   }
 }

@@ -3,5 +3,7 @@ export interface Fornecedor {
   cpfOuCnpj: string;
   razaoSocial: string;
   uf: string;
+  inscricaoEstadual: string;
+  municipio: string;
   mei: boolean;
 }

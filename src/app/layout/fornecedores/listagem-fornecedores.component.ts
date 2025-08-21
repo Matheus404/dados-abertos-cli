@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { FornecedorService } from '../../services/fornecedor.service';
 import { Fornecedor } from '../../models/fornecedor.model';
@@ -33,6 +34,7 @@ import { Fornecedor } from '../../models/fornecedor.model';
 })
 export class ListagemFornecedoresComponent implements OnInit {
   private fornecedorService = inject(FornecedorService);
+  private router = inject(Router);
 
   displayedColumns: string[] = ['cpfOuCnpj', 'razaoSocial', 'uf', 'mei', 'acoes'];
   dataSource: Fornecedor[] = [];
@@ -84,7 +86,6 @@ export class ListagemFornecedoresComponent implements OnInit {
   }
 
   visualizar(fornecedor: Fornecedor) {
-    console.log('Visualizar fornecedor:', fornecedor);
-    // no futuro: this.router.navigate(['/fornecedores', fornecedor.id]);
+    this.router.navigate(['/fornecedores', fornecedor.id]);
   }
 }
