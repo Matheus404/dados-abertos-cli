@@ -26,8 +26,13 @@
         <input matInput type="number" [(ngModel)]="filtros.numero" />
       </mat-form-field>
   
-      <button mat-raised-button color="primary" (click)="aplicarFiltros()">Filtrar</button>
-      <button mat-stroked-button color="warn" (click)="limparFiltros()">Limpar</button>
+      <button mat-raised-button color="primary" (click)="aplicarFiltros()">
+        <mat-icon>filter_list</mat-icon>
+        Filtrar</button>
+      <button mat-stroked-button color="warn" (click)="limparFiltros()">
+        <mat-icon>clear</mat-icon>
+        Limpar
+      </button>
     </div>
   
   
