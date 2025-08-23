@@ -2,20 +2,36 @@
   <mat-card>
     <!-- Filtros -->
     <div class="filtros">
+      <!-- CPF/CNPJ -->
       <mat-form-field appearance="outline">
         <mat-label>CPF/CNPJ</mat-label>
-        <input matInput [(ngModel)]="filtros.cpfOuCnpj" />
+        <input matInput [(ngModel)]="filtros.cpfOuCnpj" 
+               placeholder="Digite CPF ou CNPJ"/>
       </mat-form-field>
 
+      <!-- Razão Social -->
       <mat-form-field appearance="outline">
         <mat-label>Razão Social</mat-label>
-        <input matInput [(ngModel)]="filtros.razaoSocial" />
+        <input matInput [(ngModel)]="filtros.razaoSocial" 
+               placeholder="Digite a razão social"/>
       </mat-form-field>
 
-      <mat-checkbox [(ngModel)]="filtros.mei">MEI</mat-checkbox>
+      <!-- Checkbox MEI -->
+      <div class="checkbox-container">
+        <mat-checkbox [(ngModel)]="filtros.mei" color="primary">MEI</mat-checkbox>
+      </div>
 
-      <button mat-raised-button color="primary" (click)="aplicarFiltros()">Filtrar</button>
-      <button mat-stroked-button color="warn" (click)="limparFiltros()">Limpar</button>
+      <!-- Botões -->
+      <div class="botoes-filtro">
+        <button mat-raised-button color="primary" (click)="aplicarFiltros()" class="btn-filtro">
+          <mat-icon>filter_list</mat-icon>
+          Filtrar
+        </button>
+        <button mat-stroked-button color="warn" (click)="limparFiltros()" class="btn-filtro">
+          <mat-icon>clear</mat-icon>
+          Limpar
+        </button>
+      </div>
     </div>
 
     <!-- Título -->

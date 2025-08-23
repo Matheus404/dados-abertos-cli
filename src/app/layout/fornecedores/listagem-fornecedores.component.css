@@ -17,13 +17,34 @@ mat-card {
 .filtros {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
-  gap: 12px;
+  gap: 16px;
   align-items: end;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .filtros button {
   height: 56px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding-bottom: 4px; /* Compensa a diferença de altura dos inputs */
+}
+
+.botoes-filtro {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  height: 56px;
+}
+
+.btn-filtro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
 }
 
 /* Título seção (mesmo padrão da listagem de notas) */
@@ -86,5 +107,36 @@ mat-paginator {
 @media (max-width: 600px) {
   .filtros {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Ajuste para o checkbox em telas menores */
+@media (max-width: 900px) {
+  .filtros {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .checkbox-container {
+    grid-column: span 2;
+    height: auto;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+  
+  .botoes-filtro {
+    grid-column: span 2;
+    justify-content: center;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+  
+  .checkbox-container,
+  .botoes-filtro {
+    grid-column: span 1;
   }
 }
