@@ -3,22 +3,22 @@
     <div class="filtros">
       <mat-form-field appearance="outline">
         <mat-label>CPF/CNPJ Fornecedor</mat-label>
-        <input matInput [(ngModel)]="filtros.cpgfOuCnpjFornecedor" />
+        <input matInput [(ngModel)]="filtros.cpgfOuCnpjFornecedor" maxlength="14"/>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>CNPJ Órgão</mat-label>
-        <input matInput [(ngModel)]="filtros.cnpjOrgao" />
+        <input matInput [(ngModel)]="filtros.cnpjOrgao" maxlength="14"/>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Nome do Órgão</mat-label>
-        <input matInput [(ngModel)]="filtros.nomeOrgao" />
+        <input matInput [(ngModel)]="filtros.nomeOrgao" maxlength="35"/>
       </mat-form-field>
   
       <mat-form-field appearance="outline">
         <mat-label>Razão Social</mat-label>
-        <input matInput [(ngModel)]="filtros.razaoSocial" />
+        <input matInput [(ngModel)]="filtros.razaoSocial" maxlength="35"/>
       </mat-form-field>
   
       <mat-form-field appearance="outline">

@@ -6,14 +6,14 @@
       <mat-form-field appearance="outline">
         <mat-label>CPF/CNPJ</mat-label>
         <input matInput [(ngModel)]="filtros.cpfOuCnpj" 
-               placeholder="Digite CPF ou CNPJ"/>
+               placeholder="Digite CPF ou CNPJ" maxlength="14"/>
       </mat-form-field>
 
       <!-- Razão Social -->
       <mat-form-field appearance="outline">
         <mat-label>Razão Social</mat-label>
         <input matInput [(ngModel)]="filtros.razaoSocial" 
-               placeholder="Digite a razão social"/>
+               placeholder="Digite a razão social" maxlength="35"/>
       </mat-form-field>
 
       <!-- Checkbox MEI -->

@@ -5,19 +5,19 @@
       <!-- CNPJ -->
       <mat-form-field appearance="outline">
         <mat-label>CNPJ</mat-label>
-        <input matInput [(ngModel)]="filtros.cnpj" placeholder="Digite o CNPJ"/>
+        <input matInput [(ngModel)]="filtros.cnpj" placeholder="Digite o CNPJ" maxlength="14"/>
       </mat-form-field>
 
       <!-- Nome -->
       <mat-form-field appearance="outline">
         <mat-label>Nome</mat-label>
-        <input matInput [(ngModel)]="filtros.nome" placeholder="Digite o nome"/>
+        <input matInput [(ngModel)]="filtros.nome" placeholder="Digite o nome" maxlength="35"/>
       </mat-form-field>
 
       <!-- UF -->
       <mat-form-field appearance="outline">
         <mat-label>UF</mat-label>
-        <input matInput [(ngModel)]="filtros.uf" placeholder="Digite a UF"/>
+        <input matInput [(ngModel)]="filtros.uf" placeholder="Digite a UF" maxlength="2"/>
       </mat-form-field>
 
       <!-- Botões -->
