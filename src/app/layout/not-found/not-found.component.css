@@ -1,0 +1,17 @@
+.container-404 {
+  width: 100vw;
+  height: 100vh;       /* altura total da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;    /* evita scroll se o GIF for grande */
+  margin: 0;
+  padding: 0;
+  background-color: #fff; /* ou outra cor de fundo */
+}
+
+.img-404 {
+  width: 75%;         /* ocupa toda a largura da tela */
+  height: 75%;        /* ocupa toda a altura da tela */
+  object-fit: cover;   /* mantém proporção e preenche a tela inteira */
+}
