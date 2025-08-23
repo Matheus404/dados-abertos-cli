@@ -1,0 +1,89 @@
+<div class="container">
+  <mat-card>
+    <!-- Filtros -->
+    <div class="filtros">
+      <!-- CNPJ -->
+      <mat-form-field appearance="outline">
+        <mat-label>CNPJ</mat-label>
+        <input matInput [(ngModel)]="filtros.cnpj" placeholder="Digite o CNPJ"/>
+      </mat-form-field>
+
+      <!-- Nome -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="filtros.nome" placeholder="Digite o nome"/>
+      </mat-form-field>
+
+      <!-- UF -->
+      <mat-form-field appearance="outline">
+        <mat-label>UF</mat-label>
+        <input matInput [(ngModel)]="filtros.uf" placeholder="Digite a UF"/>
+      </mat-form-field>
+
+      <!-- Botões -->
+      <div class="botoes-filtro">
+        <button mat-raised-button color="primary" (click)="aplicarFiltros()" class="btn-filtro">
+          <mat-icon>filter_list</mat-icon>
+          Filtrar
+        </button>
+        <button mat-stroked-button color="warn" (click)="limparFiltros()" class="btn-filtro">
+          <mat-icon>clear</mat-icon>
+          Limpar
+        </button>
+      </div>
+    </div>
+
+    <!-- Título -->
+    <div class="titulo-secao">
+      <mat-icon class="icone-secao">apartment</mat-icon>
+      <h2>Órgãos</h2>
+    </div>
+
+    <!-- Tabela -->
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- CNPJ -->
+        <ng-container matColumnDef="cnpj">
+          <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+          <td mat-cell *matCellDef="let o"> {{ o.cnpj }} </td>
+        </ng-container>
+
+        <!-- Nome -->
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let o"> {{ o.nome }} </td>
+        </ng-container>
+
+        <!-- UF -->
+        <ng-container matColumnDef="uf">
+          <th mat-header-cell *matHeaderCellDef> UF </th>
+          <td mat-cell *matCellDef="let o"> {{ o.uf }} </td>
+        </ng-container>
+
+        <!-- Ações -->
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let o">
+            <button mat-icon-button class="btn-visualizar" title="Visualizar" (click)="visualizar(o)">
+              <mat-icon>search</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginação -->
+      <mat-paginator
+        [length]="totalRegistros"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        (page)="onPageChange($event)">
+      </mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

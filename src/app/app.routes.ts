@@ -4,6 +4,7 @@ import { NotaDetalheComponent } from '../app/layout/nota-detalhe/nota-detalhe.co
 import { GraficoMapaComponent } from '../app/layout/grafico-mapa/grafico-mapa.component';
 import { ListagemFornecedoresComponent } from '../app/layout/fornecedores/listagem-fornecedores.component'
 import { DetalheFornecedorComponent } from '../app/layout/detalhe-fornecedor/detalhe-fornecedor.component';
+import { ListagemOrgaosComponent } from '../app/layout/orgaos/listagem-orgaos.component';
 import { NotFoundComponent } from '../app/layout/not-found/not-found.component';
 
 export const routes: Routes = [
@@ -32,6 +33,11 @@ export const routes: Routes = [
     path: 'fornecedores/:id',
     component: DetalheFornecedorComponent,
   },
+  {
+    path: 'orgaos', 
+    component: ListagemOrgaosComponent
+  },
+  
   {
     path: 'not-found',
     component: NotFoundComponent,
