@@ -1,0 +1,25 @@
+<div class="cards-container">
+  <mat-card>
+    <mat-icon>assignment</mat-icon>
+    <div class="card-content">
+      <div class="card-title">Notas Fiscais</div>
+      <div class="card-value">{{ resumo?.quantidadeNotasFiscais | number:'1.0-0' }}</div>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <mat-icon>business</mat-icon>
+    <div class="card-content">
+      <div class="card-title">Fornecedores</div>
+      <div class="card-value">{{ resumo?.quantidadeFornecedores | number:'1.0-0' }}</div>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <mat-icon>account_balance</mat-icon>
+    <div class="card-content">
+      <div class="card-title">Órgãos</div>
+      <div class="card-value">{{ resumo?.quantidadeOrgaos | number:'1.0-0' }}</div>
+    </div>
+  </mat-card>
+</div>

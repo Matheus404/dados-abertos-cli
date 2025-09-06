@@ -1,0 +1,43 @@
+.cards-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+mat-card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+mat-icon {
+  font-size: 48px;    /* aumenta */
+  width: 48px;        /* garante largura */
+  height: 48px;       /* garante altura */
+  line-height: 48px;  /* centraliza dentro da caixa */
+  margin-right: 1rem;
+  color: #4caf50;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.card-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
