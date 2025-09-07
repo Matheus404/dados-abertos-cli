@@ -4,3 +4,19 @@
   gap: 2rem;
   padding: 1rem;
 }
+
+.linha-graficos {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.mapa {
+  flex: 2; /* ocupa mais espaço */
+}
+
+.valor-total {
+  flex: 1; /* ocupa menos espaço */
+  display: flex;
+  align-items: flex-start; /* encosta no topo */
+}

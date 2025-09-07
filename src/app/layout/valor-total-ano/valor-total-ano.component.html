@@ -1,0 +1,16 @@
+<div class="card-valor-ano">
+  <mat-form-field appearance="outline" class="ano-select">
+    <mat-label>Ano</mat-label>
+    <mat-select [(ngModel)]="anoSelecionado" (selectionChange)="carregarValorTotal()">
+      <mat-option *ngFor="let ano of anosDisponiveis" [value]="ano">
+        {{ ano }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="valor">
+    <h3>Valor Total em {{ anoSelecionado }}</h3>
+    <p *ngIf="loading">Carregando...</p>
+    <p *ngIf="!loading">{{ valorTotal | currency:'BRL':'symbol':'1.0-0':'pt-BR' }}</p>
+  </div>
+</div>

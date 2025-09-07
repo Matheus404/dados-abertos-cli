@@ -1,4 +1,14 @@
 <div class="graficos-container">
-    <app-dashboard-cards></app-dashboard-cards>
-    <app-grafico-mapa></app-grafico-mapa>
+  <!-- cards de resumo em cima -->
+  <app-dashboard-cards></app-dashboard-cards>
+
+  <!-- linha com mapa e valor total -->
+  <div class="linha-graficos">
+    <div class="mapa">
+      <app-grafico-mapa></app-grafico-mapa>
+    </div>
+    <div class="valor-total">
+      <app-valor-total-ano></app-valor-total-ano>
+    </div>
+  </div>
 </div>
