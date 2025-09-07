@@ -39,7 +39,6 @@ export class ValorTotalAnoComponent implements OnInit {
     this.dashboardService.getValorTotalAno(this.anoSelecionado).subscribe({
       next: (res) => {
         this.valorTotal = res.valorTotalNfAno;
-        console.log('[valor-total-ano] resposta', res);
         this.loading = false;
       },
       error: (err) => {

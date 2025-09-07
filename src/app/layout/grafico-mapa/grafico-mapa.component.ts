@@ -54,16 +54,16 @@ export class GraficoMapaComponent implements OnInit {
     this.option = {
       title: {
         text: 'Valor Total de Notas por Estado (UF)',
-        left: 'center'
+        left: 'center',
       },
       tooltip: {
         trigger: 'item',
         formatter: (params: any) => {
           const estado = params.name;
-          const info = this.resumoNotas.find(d => d.ufNome === estado);
+          const info = this.resumoNotas.find((d) => d.ufNome === estado);
           const valorFormatado = (params.value || 0).toLocaleString('pt-BR', {
             style: 'currency',
-            currency: 'BRL'
+            currency: 'BRL',
           });
 
           return `
@@ -71,32 +71,34 @@ export class GraficoMapaComponent implements OnInit {
             Valor Total: ${valorFormatado}<br/>
             Quantidade de Notas: ${info?.quantidadeNotas ?? 0}
           `;
-        }
+        },
       },
       visualMap: {
         min: 0,
-        max: Math.max(...valoresPorUF.map(e => e.value)),
-        left: 'left',
+        max: Math.max(...valoresPorUF.map((e) => e.value)),
+        left: 'right',
         top: 'bottom',
         text: ['Alto', 'Baixo'],
         inRange: {
-          color: ['#e0f3db', '#43a2ca']
+          color: ['#e0f7fa', '#4dd0e1', '#00796b', '#fbc02d', '#e53935'],
+          // azul claro → azul médio → verde → amarelo → vermelho
         },
-        calculable: true
+        calculable: true,
       },
+
       series: [
         {
           type: 'map',
           map: 'BR',
-          roam: true,
+          roam: false,
           emphasis: {
             label: {
-              show: true
-            }
+              show: true,
+            },
           },
-          data: valoresPorUF
-        }
-      ]
+          data: valoresPorUF,
+        },
+      ],
     };
   }
 }
