@@ -6,6 +6,7 @@ import { ListagemFornecedoresComponent } from '../app/layout/fornecedores/listag
 import { DetalheFornecedorComponent } from '../app/layout/detalhe-fornecedor/detalhe-fornecedor.component';
 import { ListagemOrgaosComponent } from '../app/layout/orgaos/listagem-orgaos.component';
 import { NotFoundComponent } from '../app/layout/not-found/not-found.component';
+import { DashboardPageComponent} from '../app/layout/dashboard-page/dashboard-page.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,7 @@ export const routes: Routes = [
   },
   {
     path: 'graficos',
-    component: GraficoMapaComponent,
+    component: DashboardPageComponent,
   },
   {
     path: 'fornecedores',
