@@ -53,8 +53,11 @@ export class GraficoMapaComponent implements OnInit {
 
     this.option = {
       title: {
-        text: 'Valor Total de Notas por Estado (UF)',
+        text: 'Distribuição de Notas Fiscais por Estado',
+        subtext: 'Ano 2025',
         left: 'center',
+        textStyle: { fontSize: 18, fontWeight: 'bold', color: '#333' },
+        subtextStyle: { fontSize: 12, color: '#666' },
       },
       tooltip: {
         trigger: 'item',
@@ -76,7 +79,7 @@ export class GraficoMapaComponent implements OnInit {
       visualMap: {
         min: 0,
         max: Math.max(...valoresPorUF.map((e) => e.value)),
-        left: 'right',
+        left: 'left',
         top: 'bottom',
         text: ['Alto', 'Baixo'],
         inRange: {
@@ -94,7 +97,16 @@ export class GraficoMapaComponent implements OnInit {
           emphasis: {
             label: {
               show: true,
+              color: '#000',
+              fontSize: 13,
             },
+          },
+          itemStyle: {
+            borderColor: '#ffffff',
+            borderWidth: 1,
+            areaColor: '#e0f7fa',
+            shadowColor: 'rgba(0,0,0,0.2)',
+            shadowBlur: 5,
           },
           data: valoresPorUF,
         },
