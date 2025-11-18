@@ -1,0 +1,23 @@
+.sobre-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.sobre-card {
+  padding: 24px;
+  background: var(--branco);
+  color: var(--preto);
+}
+
+.sobre-card h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--verde);
+}
+
+.sobre-card p {
+  font-size: 16px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}

@@ -7,6 +7,7 @@ import { DetalheFornecedorComponent } from '../app/layout/detalhe-fornecedor/det
 import { ListagemOrgaosComponent } from '../app/layout/orgaos/listagem-orgaos.component';
 import { NotFoundComponent } from '../app/layout/not-found/not-found.component';
 import { DashboardPageComponent} from '../app/layout/dashboard-page/dashboard-page.component';
+import { SobreComponent } from './layout/sobre/sobre.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
   {
     path: 'orgaos', 
     component: ListagemOrgaosComponent
+  },
+  {
+    path: 'sobre',
+    component: SobreComponent,
   },
   
   {
