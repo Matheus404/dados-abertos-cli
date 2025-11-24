@@ -6,6 +6,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DashboardService } from '../../services/dashboard.service';
+import { AnoStoreService } from '../../services/ano-store.service';
 
 @Component({
   selector: 'app-valor-total-ano',
@@ -17,10 +18,10 @@ import { DashboardService } from '../../services/dashboard.service';
     MatFormFieldModule,
     MatSelectModule,
     MatOptionModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   templateUrl: './valor-total-ano.component.html',
-  styleUrls: ['./valor-total-ano.component.css']
+  styleUrls: ['./valor-total-ano.component.css'],
 })
 export class ValorTotalAnoComponent implements OnInit {
   anosDisponiveis = [2023, 2024, 2025];
@@ -28,9 +29,18 @@ export class ValorTotalAnoComponent implements OnInit {
   valorTotal: number = 0;
   loading = false;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private anoStore: AnoStoreService
+  ) {}
 
   ngOnInit(): void {
+    this.anoSelecionado = this.anoStore.obterAno();
+    this.carregarValorTotal();
+  }
+
+  onAnoChange(): void {
+    this.anoStore.definirAno(this.anoSelecionado);
     this.carregarValorTotal();
   }
 
@@ -44,7 +54,7 @@ export class ValorTotalAnoComponent implements OnInit {
       error: (err) => {
         console.error('[valor-total-ano] erro', err);
         this.loading = false;
-      }
+      },
     });
   }
 }

@@ -1,7 +1,7 @@
 <div class="card-valor-ano">
   <mat-form-field appearance="outline" class="ano-select">
     <mat-label>Ano</mat-label>
-    <mat-select [(ngModel)]="anoSelecionado" (selectionChange)="carregarValorTotal()">
+    <mat-select [(ngModel)]="anoSelecionado" (selectionChange)="onAnoChange()">
       <mat-option *ngFor="let ano of anosDisponiveis" [value]="ano">
         {{ ano }}
       </mat-option>
